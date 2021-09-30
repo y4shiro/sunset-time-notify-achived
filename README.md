@@ -1,6 +1,6 @@
 # Sunset Time Notify
 
-任意の日時 / 地点の日没時刻を表示したり、Push 通知などで日没が近づくと通知したりする Web サービス。
+任意の日時 / 地点の日没時刻を表示したり、Push 通知などで日没が近づくと通知したりする Web サービス。  
 開発途中なのでドメインは適当です。  
 https://sunset-time-notify.vercel.app/
 
