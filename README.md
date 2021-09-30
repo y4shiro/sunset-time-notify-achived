@@ -13,6 +13,10 @@
 - React.js
 - Next.js
 - TypeScript
+- Chakra UI (Emotion)
+
+### ホスティング
+
 - Versel
 
 ## 開発環境立ち上げ
