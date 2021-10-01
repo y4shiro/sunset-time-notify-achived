@@ -7,8 +7,8 @@ module.exports = {
     },
     upload: {
       target: 'lhci',
-      serverBaseUrl: 'https://gentle-eyrie-01072.herokuapp.com',
-      token: 'e8ad80d2-c424-4f96-9211-337d1b10ef44',
+      serverBaseUrl: 'https://rocky-caverns-87987.herokuapp.com',
+      token: '12a30950-2c0c-475f-98aa-519cf2266258',
     },
   },
 };
