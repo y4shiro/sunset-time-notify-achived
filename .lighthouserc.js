@@ -4,6 +4,9 @@ module.exports = {
       numberOfRuns: 3,
       staticDistDir: './out',
       url: ['/'],
+      settings: {
+        preset: 'desktop',
+      },
     },
     upload: {
       target: 'lhci',
