@@ -10,6 +10,7 @@ jobs:
       - name: npm install, next export
         run: |
           npm install
+          npm run build
           npm run export
       - name: run Lighthouse CI
         run: |
