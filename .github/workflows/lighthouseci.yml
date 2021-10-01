@@ -17,5 +17,5 @@ jobs:
           npm run export
       - name: run Lighthouse CI
         run: |
-          npm install -g @lhci/cli@0.6.x
+          npm install -g @lhci/cli@0.8.x
           lhci autorun
