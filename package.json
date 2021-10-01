@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   },
   "dependencies": {
     "next": "11.1.2",
@@ -21,6 +22,7 @@
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
     "eslint-config-prettier": "^8.3.0",
+    "prettier": "2.4.1",
     "typescript": "^4.4.3"
   }
 }
