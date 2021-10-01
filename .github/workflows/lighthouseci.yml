@@ -8,8 +8,10 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
       - name: npm install, next export
-        run: npm install
-        run: npm run export
+        run: |
+          npm install
+          npm run export
       - name: run Lighthouse CI
-        run: npm install -g @lhci/cli@0.6.x
-        run: lhci autorun
+        run: |
+          npm install -g @lhci/cli@0.6.x
+          lhci autorun
