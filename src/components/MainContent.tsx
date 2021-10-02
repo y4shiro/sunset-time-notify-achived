@@ -7,7 +7,7 @@ import SunsetInfo from './SunsetInfo';
 const MainContent: React.FC = () => {
   return (
     <>
-      <HStack bg='gray.200' spacing='16px'>
+      <HStack as='main' bg='gray.200' spacing='16px'>
         <Map />
         <SunsetInfo />
       </HStack>
