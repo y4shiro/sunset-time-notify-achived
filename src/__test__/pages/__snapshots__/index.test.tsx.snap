@@ -2,16 +2,72 @@
 
 exports[`ホームページ 1`] = `
 <div>
-  <h1>
-    Sunset Time Notify
-  </h1>
   <div
-    class="css-0"
+    class="css-1ml9zdm"
   >
     <h2
-      class="css-yyn9q4"
+      class="chakra-heading css-gow9n2"
     >
-      H2 要素に Chakra UI 適用
+      Sunset Time Notify
+    </h2>
+    <div
+      class="css-17xejub"
+    />
+    <div
+      class="chakra-stack css-1725c0t"
+    >
+      <div
+        class="css-0"
+      >
+        <p
+          class="chakra-text css-0"
+        >
+          About
+        </p>
+      </div>
+      <div
+        class="css-0"
+      >
+        <p
+          class="chakra-text css-0"
+        >
+          Contact
+        </p>
+      </div>
+    </div>
+  </div>
+  <main
+    class="chakra-container css-1t9qy6v"
+  >
+    <div
+      class="css-1i5b0yu"
+    >
+      <div
+        class="css-n75q0x"
+      >
+        <img
+          class="chakra-image css-11bwpil"
+          src="/Map.png"
+        />
+      </div>
+      <div
+        class="css-19rkmrw"
+      >
+        <p
+          class="chakra-text css-0"
+        >
+          日の入の時刻など表示
+        </p>
+      </div>
+    </div>
+  </main>
+  <div
+    class="css-1sv1sar"
+  >
+    <h2
+      class="chakra-heading css-fqf5a4"
+    >
+      © 2021 y4shiro.
     </h2>
   </div>
 </div>
