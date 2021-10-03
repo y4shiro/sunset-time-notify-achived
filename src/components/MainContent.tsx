@@ -7,7 +7,7 @@ import SunsetInfo from './SunsetInfo';
 const MainContent: React.FC = () => {
   return (
     <>
-      <Container as='main' maxW='container.lg.lg'>
+      <Container as='main' maxW='container.xl'>
         <SimpleGrid columns={{ base: 1, md: 2 }} bg='gray.200'>
           <Map />
           <SunsetInfo />
