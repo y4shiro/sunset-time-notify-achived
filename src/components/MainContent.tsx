@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Box, Heading, HStack } from '@chakra-ui/react';
+import { Container, Box, Heading, HStack, SimpleGrid } from '@chakra-ui/react';
 
 import Map from './Map';
 import SunsetInfo from './SunsetInfo';
@@ -7,11 +7,11 @@ import SunsetInfo from './SunsetInfo';
 const MainContent: React.FC = () => {
   return (
     <>
-      <Container maxW='container.lg.lg'>
-        <HStack as='main' bg='gray.200' spacing='16px'>
+      <Container as='main' maxW='container.lg.lg'>
+        <SimpleGrid columns={{ base: 1, md: 2 }} bg='gray.200'>
           <Map />
           <SunsetInfo />
-        </HStack>
+        </SimpleGrid>
       </Container>
     </>
   );
