@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, HStack } from '@chakra-ui/react';
+import { Container, Box, Heading, HStack } from '@chakra-ui/react';
 
 import Map from './Map';
 import SunsetInfo from './SunsetInfo';
@@ -7,10 +7,12 @@ import SunsetInfo from './SunsetInfo';
 const MainContent: React.FC = () => {
   return (
     <>
-      <HStack as='main' bg='gray.200' spacing='16px'>
-        <Map />
-        <SunsetInfo />
-      </HStack>
+      <Container maxW='container.lg.lg'>
+        <HStack as='main' bg='gray.200' spacing='16px'>
+          <Map />
+          <SunsetInfo />
+        </HStack>
+      </Container>
     </>
   );
 };
