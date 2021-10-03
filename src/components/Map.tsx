@@ -4,11 +4,9 @@ import { Box, Image } from '@chakra-ui/react';
 
 const Map: React.FC = () => {
   return (
-    <>
-      <Box m='4'>
-        <Image src='/Map.png' borderRadius='lg' boxShadow='lg' />
-      </Box>
-    </>
+    <Box m='4'>
+      <Image src='/Map.png' borderRadius='lg' boxShadow='lg' />
+    </Box>
   );
 };
 
