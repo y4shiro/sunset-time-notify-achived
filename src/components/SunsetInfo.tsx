@@ -19,7 +19,7 @@ const SunsetInfo: React.FC = () => {
 
   return (
     <Stack m='4' spacing={4}>
-      <Input value={formValue} onChange={handleChange} variant='filled' placeholder='値を入力' />
+      <Input value={formValue} onChange={handleChange} placeholder='値を入力' bg={'white'} />
       <Text>フォームの値:{formValue}</Text>
     </Stack>
   );
