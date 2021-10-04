@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Heading, Input, Text, Stack } from '@chakra-ui/react';
+import { Input, Text, Select, Stack } from '@chakra-ui/react';
+
+import prefJson from '../data/location-of-pref-office-in-japan.json';
 
 const SunsetInfo: React.FC = () => {
-  const [formValue, setFormValue] = useState('');
+  const [formValue, setFormValue] = useState<string>('');
+  const [pref, setPref] = useState<number>(0);
 
-  const handleChange = (e: { target: { value: React.SetStateAction<string> } }) => setFormValue(e.target.value);
+  const handleFormChange = (e: { target: { value: React.SetStateAction<string> } }) => setFormValue(e.target.value);
+
+  const handleSelectChange = (e: { target: { value: React.SetStateAction<string> } }) => {
+    setPref(Number(e.target.value));
+  };
 
   // ページ読み込み時に localStorage から値を取得して useState に保存
   useEffect(() => {
@@ -19,8 +26,16 @@ const SunsetInfo: React.FC = () => {
 
   return (
     <Stack m='4' spacing={4}>
-      <Input value={formValue} onChange={handleChange} placeholder='値を入力' bg={'white'} />
+      <Input value={formValue} onChange={handleFormChange} placeholder='値を入力' bg={'white'} />
       <Text>フォームの値:{formValue}</Text>
+      <Select bg={'white'} onChange={handleSelectChange}>
+        {prefJson.marker.map((pref, index) => (
+          <option value={index} key={pref.pref}>
+            {pref.pref}
+          </option>
+        ))}
+      </Select>
+      <Text>セレクトボックスの値:{prefJson.marker[pref].pref}</Text>
     </Stack>
   );
 };
