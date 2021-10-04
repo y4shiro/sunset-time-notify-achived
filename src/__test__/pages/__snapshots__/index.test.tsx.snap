@@ -51,12 +51,18 @@ exports[`ホームページ 1`] = `
         />
       </div>
       <div
-        class="css-19rkmrw"
+        class="chakra-stack css-3wimba"
       >
+        <input
+          class="chakra-input css-1pwkzcn"
+          placeholder="値を入力"
+          value=""
+        />
         <p
           class="chakra-text css-0"
         >
-          日の入の時刻など表示
+          フォームの値:
+          
         </p>
       </div>
     </div>

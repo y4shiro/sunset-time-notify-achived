@@ -9,7 +9,7 @@ const SunsetInfo: React.FC = () => {
   // ページ読み込み時に localStorage から値を取得して useState に保存
   useEffect(() => {
     const localStorageValue = JSON.parse(localStorage.getItem('form')!);
-    setFormValue(localStorageValue);
+    if (localStorageValue) setFormValue(localStorageValue);
   }, []);
 
   // formValue の値を更新した場合は localStorage にも反映させる
