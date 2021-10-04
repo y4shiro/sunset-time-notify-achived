@@ -1,11 +1,16 @@
-import React from 'react';
-import { Box, Text } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Box, Heading, Input, Text, Stack } from '@chakra-ui/react';
 
 const SunsetInfo: React.FC = () => {
+  const [formValue, setFormValue] = useState('');
+
+  const handleChange = (e: { target: { value: React.SetStateAction<string> } }) => setFormValue(e.target.value);
+
   return (
-    <Box m='4' bg='skyblue'>
-      <Text>日の入の時刻など表示</Text>
-    </Box>
+    <Stack m='4' spacing={4}>
+      <Input value={formValue} onChange={handleChange} variant='filled' placeholder='値を入力' />
+      <Text>フォームの値:{formValue}</Text>
+    </Stack>
   );
 };
 
