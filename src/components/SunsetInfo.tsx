@@ -1,7 +1,7 @@
 import React, { useMemo, useEffect, useState } from 'react';
 import { Input, Text, Select, Stack } from '@chakra-ui/react';
 
-import { calcSunsetTime } from '../lib/calcSunsetTime';
+import { useSunsetTime } from '../hooks/useSunsetTime';
 
 import prefJson from '../data/location-of-pref-office-in-japan.json';
 
@@ -9,16 +9,13 @@ const SunsetInfo: React.FC = () => {
   const [formValue, setFormValue] = useState<string>('');
   const [prefNum, setPrefNum] = useState<number>(0);
 
+  const sunsetTime: string = useSunsetTime(prefJson[prefNum].lat, prefJson[prefNum].lng);
+
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => setFormValue(e.target.value);
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setPrefNum(parseInt(e.target.value));
   };
-
-  const sunsetTime: string = useMemo(() => {
-    const time = calcSunsetTime(prefJson[prefNum].lat, prefJson[prefNum].lng);
-    return time.toLocaleTimeString();
-  }, [prefNum]);
 
   // ページ読み込み時に localStorage から値を取得して useState に保存
   useEffect(() => {
