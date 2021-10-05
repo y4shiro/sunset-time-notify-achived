@@ -29,13 +29,13 @@ const SunsetInfo: React.FC = () => {
       <Input value={formValue} onChange={(e) => handleFormChange(e)} placeholder='値を入力' bg={'white'} />
       <Text>フォームの値:{formValue}</Text>
       <Select bg={'white'} onChange={(e) => handleSelectChange(e)}>
-        {prefJson.marker.map((pref, index) => (
+        {prefJson.map((pref, index) => (
           <option value={index} key={pref.pref}>
             {pref.pref}
           </option>
         ))}
       </Select>
-      <Text>セレクトボックスの値:{prefJson.marker[pref].pref}</Text>
+      <Text>セレクトボックスの値:{prefJson[pref].pref}</Text>
       <Text>useState(pref)の値:{pref}</Text>
     </Stack>
   );
