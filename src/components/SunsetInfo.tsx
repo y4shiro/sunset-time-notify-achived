@@ -35,9 +35,9 @@ const SunsetInfo: React.FC = () => {
   return (
     <Stack m='4' spacing={4}>
       <Select bg={'white'} onChange={(e) => handleSelectChange(e)}>
-        {prefJson.map((pref, index) => (
-          <option value={index} key={pref.pref}>
-            {pref.pref}
+        {prefJson.map((data, index) => (
+          <option value={index} key={data.pref}>
+            {data.pref}
           </option>
         ))}
       </Select>
