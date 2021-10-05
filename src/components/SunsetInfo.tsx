@@ -5,12 +5,12 @@ import prefJson from '../data/location-of-pref-office-in-japan.json';
 
 const SunsetInfo: React.FC = () => {
   const [formValue, setFormValue] = useState<string>('');
-  const [pref, setPref] = useState<number>(0);
+  const [prefNum, setPrefNum] = useState<number>(0);
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => setFormValue(e.target.value);
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setPref(parseInt(e.target.value));
+    setPrefNum(parseInt(e.target.value));
   };
 
   // ページ読み込み時に localStorage から値を取得して useState に保存
@@ -35,8 +35,8 @@ const SunsetInfo: React.FC = () => {
           </option>
         ))}
       </Select>
-      <Text>セレクトボックスの値:{prefJson[pref].pref}</Text>
-      <Text>useState(pref)の値:{pref}</Text>
+      <Text>セレクトボックスの値:{prefJson[prefNum].pref}</Text>
+      <Text>useState(prefNum)の値:{prefNum}</Text>
     </Stack>
   );
 };
