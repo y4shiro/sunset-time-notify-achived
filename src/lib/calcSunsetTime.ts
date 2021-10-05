@@ -1,9 +1,9 @@
 import { getSunrise, getSunset } from 'sunrise-sunset-js';
 
 const calcSunriseTime = (lat: number, lng: number): Date => {
-  const sunsetTime = getSunrise(lat, lng);
+  const sunriseTime = getSunrise(lat, lng);
 
-  return sunsetTime;
+  return sunriseTime;
 };
 
 const calcSunsetTime = (lat: number, lng: number): Date => {
