@@ -22,7 +22,8 @@
     "framer-motion": "4.1.17",
     "next": "11.1.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sunrise-sunset-js": "^2.2.1"
   },
   "devDependencies": {
     "@testing-library/react": "12.1.2",

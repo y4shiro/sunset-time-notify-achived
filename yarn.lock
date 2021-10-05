@@ -6907,6 +6907,11 @@ stylis@^4.0.3:
   resolved "https://registry.npmjs.org/stylis/-/stylis-4.0.10.tgz"
   integrity sha512-m3k+dk7QeJw660eIKRRn3xPF6uuvHs/FFzjX3HQ5ove0qYsiygoAhwn5a3IYKaZPo5LrYD0rfVmtv1gNY1uYwg==
 
+sunrise-sunset-js@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/sunrise-sunset-js/-/sunrise-sunset-js-2.2.1.tgz#bf541aab71b9215901fb6dee260e946fb3c7a80a"
+  integrity sha512-ErsvmxoTCZRacVPtlchkrTAR8qxypBy0BDrrv9LMugLuF0AykcS5pQsP1EhQJHgumxrTTSI8N8KJkQMVJ6dEPw==
+
 supports-color@^5.3.0:
   version "5.5.0"
   resolved "https://registry.npmjs.org/supports-color/-/supports-color-5.5.0.tgz"

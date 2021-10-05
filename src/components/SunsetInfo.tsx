@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Input, Text, Select, Stack } from '@chakra-ui/react';
 
+import { calcSunsetTime } from '../lib/calcSunsetTime';
+
 import prefJson from '../data/location-of-pref-office-in-japan.json';
 
 const SunsetInfo: React.FC = () => {
@@ -12,6 +14,8 @@ const SunsetInfo: React.FC = () => {
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setPrefNum(parseInt(e.target.value));
   };
+
+  console.log(calcSunsetTime(43.064301, 141.346874));
 
   // ページ読み込み時に localStorage から値を取得して useState に保存
   useEffect(() => {
