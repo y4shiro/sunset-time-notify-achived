@@ -6,31 +6,29 @@ import { useSunsetTime } from '../hooks/useSunsetTime';
 import prefJson from '../data/location-of-pref-office-in-japan.json';
 
 const SunsetInfo: React.FC = () => {
-  const [formValue, setFormValue] = useState<string>('');
-  const [prefNum, setPrefNum] = useState<number>(0);
-
+  const [prefNum, setPrefNum] = useState(0);
   const sunsetTime: string = useSunsetTime(prefJson[prefNum].lat, prefJson[prefNum].lng);
 
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => setFormValue(e.target.value);
-
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setPrefNum(parseInt(e.target.value));
+    const num = parseInt(e.target.value);
+    setPrefNum(num);
+
+    // prefNum の値を更新した場合は localStorage にも反映させる
+    localStorage.setItem('prefNum', JSON.stringify(num));
+    console.log('change prefNum for localStorage:', num);
   };
 
   // ページ読み込み時に localStorage から値を取得して useState に保存
   useEffect(() => {
-    const localStorageValue = JSON.parse(localStorage.getItem('form')!);
-    if (localStorageValue) setFormValue(localStorageValue);
+    const localStorageValue = JSON.parse(localStorage.getItem('prefNum')!);
+    if (localStorageValue) setPrefNum(localStorageValue);
+    else setPrefNum(0);
+    console.log('read localStorage');
   }, []);
-
-  // formValue の値を更新した場合は localStorage にも反映させる
-  useEffect(() => {
-    localStorage.setItem('form', JSON.stringify(formValue));
-  }, [formValue]);
 
   return (
     <Stack m='4' spacing={4}>
-      <Select bg={'white'} onChange={(e) => handleSelectChange(e)}>
+      <Select bg={'white'} value={prefNum} onChange={(e) => handleSelectChange(e)}>
         {prefJson.map((data, index) => (
           <option value={index} key={data.pref}>
             {data.pref}
