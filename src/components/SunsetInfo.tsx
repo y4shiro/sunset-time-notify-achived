@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Heading, Input, Text, Stack } from '@chakra-ui/react';
+import { Input, Text, Select, Stack } from '@chakra-ui/react';
+
+import prefJson from '../data/location-of-pref-office-in-japan.json';
 
 const SunsetInfo: React.FC = () => {
-  const [formValue, setFormValue] = useState('');
+  const [formValue, setFormValue] = useState<string>('');
+  const [prefNum, setPrefNum] = useState<number>(0);
 
-  const handleChange = (e: { target: { value: React.SetStateAction<string> } }) => setFormValue(e.target.value);
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => setFormValue(e.target.value);
+
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setPrefNum(parseInt(e.target.value));
+  };
 
   // ページ読み込み時に localStorage から値を取得して useState に保存
   useEffect(() => {
@@ -19,8 +26,18 @@ const SunsetInfo: React.FC = () => {
 
   return (
     <Stack m='4' spacing={4}>
-      <Input value={formValue} onChange={handleChange} placeholder='値を入力' bg={'white'} />
+      <Input value={formValue} onChange={(e) => handleFormChange(e)} placeholder='値を入力' bg={'white'} />
       <Text>フォームの値:{formValue}</Text>
+      <Select bg={'white'} onChange={(e) => handleSelectChange(e)}>
+        {prefJson.map((pref, index) => (
+          <option value={index} key={pref.pref}>
+            {pref.pref}
+          </option>
+        ))}
+      </Select>
+      <Text>県庁所在地:{prefJson[prefNum].addr}</Text>
+      <Text>緯度:{prefJson[prefNum].lat}</Text>
+      <Text>経度:{prefJson[prefNum].lng}</Text>
     </Stack>
   );
 };
