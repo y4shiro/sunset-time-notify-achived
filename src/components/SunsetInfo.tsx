@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useEffect, useState } from 'react';
 import { Input, Text, Select, Stack } from '@chakra-ui/react';
 
 import { calcSunsetTime } from '../lib/calcSunsetTime';
@@ -15,11 +15,10 @@ const SunsetInfo: React.FC = () => {
     setPrefNum(parseInt(e.target.value));
   };
 
-  const sunsetTime = (): string => {
+  const sunsetTime: string = useMemo(() => {
     const time = calcSunsetTime(prefJson[prefNum].lat, prefJson[prefNum].lng);
-
     return time.toLocaleTimeString();
-  };
+  }, [prefNum]);
 
   // ページ読み込み時に localStorage から値を取得して useState に保存
   useEffect(() => {
@@ -44,7 +43,7 @@ const SunsetInfo: React.FC = () => {
       <Text>県庁所在地:{prefJson[prefNum].addr}</Text>
       <Text>緯度:{prefJson[prefNum].lat}</Text>
       <Text>経度:{prefJson[prefNum].lng}</Text>
-      <Text>本日の日没時刻は{sunsetTime()}です</Text>
+      <Text>本日の日没時刻は{sunsetTime}です</Text>
     </Stack>
   );
 };
