@@ -7,10 +7,10 @@ const SunsetInfo: React.FC = () => {
   const [formValue, setFormValue] = useState<string>('');
   const [pref, setPref] = useState<number>(0);
 
-  const handleFormChange = (e: { target: { value: React.SetStateAction<string> } }) => setFormValue(e.target.value);
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => setFormValue(e.target.value);
 
-  const handleSelectChange = (e: { target: { value: React.SetStateAction<string> } }) => {
-    setPref(Number(e.target.value));
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setPref(parseInt(e.target.value));
   };
 
   // ページ読み込み時に localStorage から値を取得して useState に保存
@@ -26,9 +26,9 @@ const SunsetInfo: React.FC = () => {
 
   return (
     <Stack m='4' spacing={4}>
-      <Input value={formValue} onChange={handleFormChange} placeholder='値を入力' bg={'white'} />
+      <Input value={formValue} onChange={(e) => handleFormChange(e)} placeholder='値を入力' bg={'white'} />
       <Text>フォームの値:{formValue}</Text>
-      <Select bg={'white'} onChange={handleSelectChange}>
+      <Select bg={'white'} onChange={(e) => handleSelectChange(e)}>
         {prefJson.marker.map((pref, index) => (
           <option value={index} key={pref.pref}>
             {pref.pref}
@@ -36,6 +36,7 @@ const SunsetInfo: React.FC = () => {
         ))}
       </Select>
       <Text>セレクトボックスの値:{prefJson.marker[pref].pref}</Text>
+      <Text>useState(pref)の値:{pref}</Text>
     </Stack>
   );
 };
