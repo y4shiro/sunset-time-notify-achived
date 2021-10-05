@@ -15,7 +15,11 @@ const SunsetInfo: React.FC = () => {
     setPrefNum(parseInt(e.target.value));
   };
 
-  console.log(calcSunsetTime(43.064301, 141.346874));
+  const sunsetTime = (lat: number, lng: number): string => {
+    const time = calcSunsetTime(lat, lng);
+
+    return time.toLocaleTimeString();
+  };
 
   // ページ読み込み時に localStorage から値を取得して useState に保存
   useEffect(() => {
@@ -42,6 +46,7 @@ const SunsetInfo: React.FC = () => {
       <Text>県庁所在地:{prefJson[prefNum].addr}</Text>
       <Text>緯度:{prefJson[prefNum].lat}</Text>
       <Text>経度:{prefJson[prefNum].lng}</Text>
+      <Text>本日の日没時刻は{sunsetTime(prefJson[prefNum].lat, prefJson[prefNum].lng)}です</Text>
     </Stack>
   );
 };
