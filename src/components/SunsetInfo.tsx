@@ -35,8 +35,9 @@ const SunsetInfo: React.FC = () => {
           </option>
         ))}
       </Select>
-      <Text>セレクトボックスの値:{prefJson[prefNum].pref}</Text>
-      <Text>useState(prefNum)の値:{prefNum}</Text>
+      <Text>県庁所在地:{prefJson[prefNum].addr}</Text>
+      <Text>緯度:{prefJson[prefNum].lat}</Text>
+      <Text>経度:{prefJson[prefNum].lng}</Text>
     </Stack>
   );
 };
