@@ -34,8 +34,6 @@ const SunsetInfo: React.FC = () => {
 
   return (
     <Stack m='4' spacing={4}>
-      <Input value={formValue} onChange={(e) => handleFormChange(e)} placeholder='値を入力' bg={'white'} />
-      <Text>フォームの値:{formValue}</Text>
       <Select bg={'white'} onChange={(e) => handleSelectChange(e)}>
         {prefJson.map((pref, index) => (
           <option value={index} key={pref.pref}>
