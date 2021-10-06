@@ -1,32 +1,18 @@
-import React, { useMemo, useEffect, useState } from 'react';
+import React from 'react';
 import { Input, Text, Select, Stack } from '@chakra-ui/react';
 
 import { useSunsetTime } from '../hooks/useSunsetTime';
+import usePrefNum from '../hooks/usePrefNum';
 
 import prefJson from '../data/location-of-pref-office-in-japan.json';
 
 const SunsetInfo: React.FC = () => {
-  const [prefNum, setPrefNum] = useState(0);
+  const { prefNum, changePrefNum } = usePrefNum();
   const sunsetTime: string = useSunsetTime(prefJson[prefNum].lat, prefJson[prefNum].lng);
-
-  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const num = parseInt(e.target.value);
-    setPrefNum(num);
-
-    // prefNum の値を更新した場合は localStorage にも反映させる
-    localStorage.setItem('prefNum', JSON.stringify(num));
-  };
-
-  // ページ読み込み時に localStorage から値を取得して useState に保存
-  useEffect(() => {
-    const localStorageValue = JSON.parse(localStorage.getItem('prefNum')!);
-    if (localStorageValue) setPrefNum(localStorageValue);
-    else setPrefNum(0);
-  }, []);
 
   return (
     <Stack m='4' spacing={4}>
-      <Select bg={'white'} value={prefNum} onChange={(e) => handleSelectChange(e)}>
+      <Select bg={'white'} value={prefNum} onChange={(e) => changePrefNum(e)}>
         {prefJson.map((data, index) => (
           <option value={index} key={data.pref}>
             {data.pref}
