@@ -5,7 +5,8 @@ const defautlPrefNum = 0; // 0 は北海道を指す
 const usePrefNum = () => {
   const [prefNum, setPrefNum] = useState(defautlPrefNum);
 
-  // ページ読み込み時に localStorage から値を取得して useState に保存
+  // ページ読み込み時に LocalStorage から値を取得して useState に保存
+  // LocalStorage に値が無い場合は defaultPrefNum をセットする
   useEffect(() => {
     const localStorageValue = localStorage.getItem('prefNum');
 
