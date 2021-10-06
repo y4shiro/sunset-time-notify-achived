@@ -15,7 +15,6 @@ const SunsetInfo: React.FC = () => {
 
     // prefNum の値を更新した場合は localStorage にも反映させる
     localStorage.setItem('prefNum', JSON.stringify(num));
-    console.log('change prefNum for localStorage:', num);
   };
 
   // ページ読み込み時に localStorage から値を取得して useState に保存
@@ -23,7 +22,6 @@ const SunsetInfo: React.FC = () => {
     const localStorageValue = JSON.parse(localStorage.getItem('prefNum')!);
     if (localStorageValue) setPrefNum(localStorageValue);
     else setPrefNum(0);
-    console.log('read localStorage');
   }, []);
 
   return (
