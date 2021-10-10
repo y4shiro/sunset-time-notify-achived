@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Text, Select, Stack } from '@chakra-ui/react';
 
-import { useSunsetTime, useSunriseTime } from '../hooks/useSunsetTime';
+import { calcSunsetTime, calcSunriseTime } from '../lib/calcSunsetTime';
 import usePrefNum from '../hooks/usePrefNum';
 
 import prefJson from '../data/location-of-pref-office-in-japan.json';
@@ -9,8 +9,8 @@ import prefJson from '../data/location-of-pref-office-in-japan.json';
 const SunsetInfo: React.FC = () => {
   const { prefNum, changePrefNum } = usePrefNum();
 
-  const sunriseTime: string = useSunriseTime(prefJson[prefNum].lat, prefJson[prefNum].lng);
-  const sunsetTime: string = useSunsetTime(prefJson[prefNum].lat, prefJson[prefNum].lng);
+  const sunriseTime: string = calcSunriseTime(prefJson[prefNum].lat, prefJson[prefNum].lng);
+  const sunsetTime: string = calcSunsetTime(prefJson[prefNum].lat, prefJson[prefNum].lng);
 
   return (
     <Stack m='4' spacing={4}>
