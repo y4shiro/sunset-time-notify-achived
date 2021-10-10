@@ -1,13 +1,15 @@
 import React from 'react';
 import { Input, Text, Select, Stack } from '@chakra-ui/react';
 
-import { useSunsetTime } from '../hooks/useSunsetTime';
+import { useSunsetTime, useSunriseTime } from '../hooks/useSunsetTime';
 import usePrefNum from '../hooks/usePrefNum';
 
 import prefJson from '../data/location-of-pref-office-in-japan.json';
 
 const SunsetInfo: React.FC = () => {
   const { prefNum, changePrefNum } = usePrefNum();
+
+  const sunriseTime: string = useSunriseTime(prefJson[prefNum].lat, prefJson[prefNum].lng);
   const sunsetTime: string = useSunsetTime(prefJson[prefNum].lat, prefJson[prefNum].lng);
 
   return (
@@ -22,6 +24,7 @@ const SunsetInfo: React.FC = () => {
       <Text>県庁所在地:{prefJson[prefNum].addr}</Text>
       <Text>緯度:{prefJson[prefNum].lat}</Text>
       <Text>経度:{prefJson[prefNum].lng}</Text>
+      <Text>本日の日出時刻は{sunriseTime}です</Text>
       <Text>本日の日没時刻は{sunsetTime}です</Text>
     </Stack>
   );
