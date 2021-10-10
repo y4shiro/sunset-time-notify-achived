@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Text, Select, Stack } from '@chakra-ui/react';
 
-import { calcSunsetTime, calcSunriseTime } from '../lib/calcSunsetTime';
+import { calcSunsetTime, calcSunriseTime } from '../lib/calcSunTime';
 import usePrefNum from '../hooks/usePrefNum';
 
 import prefJson from '../data/location-of-pref-office-in-japan.json';

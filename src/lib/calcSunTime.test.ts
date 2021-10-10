@@ -1,5 +1,5 @@
 import {} from '@testing-library/react';
-import { calcSunriseTime, calcSunsetTime } from './calcSunsetTime';
+import { calcSunriseTime, calcSunsetTime } from './calcSunTime';
 
 describe('useSunriseTime のテスト', () => {
   test('座標を引数として渡すと日出時刻の文字列が返ってくる', () => {
