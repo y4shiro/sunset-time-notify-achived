@@ -17,8 +17,8 @@ const useGetLocation = () => {
       lng: position.coords.longitude,
     });
   };
-  const error = () => {
-    console.log('error');
+  const error = (err: GeolocationPositionError) => {
+    console.log(err.message);
   };
 
   return { location, getLocation };
