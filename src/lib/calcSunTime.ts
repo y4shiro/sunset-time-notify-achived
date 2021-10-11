@@ -1,14 +1,14 @@
 import { getSunrise, getSunset } from 'sunrise-sunset-js';
 
-type SunTimeFunc = (lat: number, lng: number) => string;
+type SunTimeFunc = (lat: number, lng: number, date?: Date) => string;
 
-const calcSunriseTime: SunTimeFunc = (lat, lng) => {
-  const sunriseTime = getSunrise(lat, lng);
+const calcSunriseTime: SunTimeFunc = (lat, lng, date = new Date()) => {
+  const sunriseTime = getSunrise(lat, lng, date);
   return sunriseTime.toLocaleTimeString('en-GB');
 };
 
-const calcSunsetTime: SunTimeFunc = (lat, lng) => {
-  const sunsetTime = getSunset(lat, lng);
+const calcSunsetTime: SunTimeFunc = (lat, lng, date = new Date()) => {
+  const sunsetTime = getSunset(lat, lng, date);
   return sunsetTime.toLocaleTimeString('en-GB');
 };
 
