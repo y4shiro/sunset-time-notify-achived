@@ -8,7 +8,7 @@ describe('useSunriseTime のテスト', () => {
   });
 
   test('白夜、極夜で日出しない場合は "Invalid Date" が返ってくる', () => {
-    const result = calcSunriseTime(-90, 0, new Date('2021-04-01'));
+    const result = calcSunriseTime(-90, 0, new Date('2021-06-15'));
     expect(result).toMatch('Invalid Date');
   });
 });
@@ -20,7 +20,7 @@ describe('useSunsetTime のテスト', () => {
   });
 
   test('白夜、極夜で日没しない場合は "Invalid Date" が返ってくる', () => {
-    const result = calcSunsetTime(-90, 0, new Date('2021-04-01'));
+    const result = calcSunsetTime(-90, 0, new Date('2021-01-15'));
     expect(result).toMatch('Invalid Date');
   });
 });
