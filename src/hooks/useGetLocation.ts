@@ -4,7 +4,7 @@ const useGetLocation = () => {
   const [location, setLocation] = useState({ lat: 0, lng: 0 });
 
   const getLocation = () => {
-    if (typeof navigator === 'undefined') {
+    if (!navigator.geolocation) {
       console.log('Unable to retrieve your location');
     } else {
       navigator.geolocation.getCurrentPosition(success, error);
@@ -12,7 +12,6 @@ const useGetLocation = () => {
   };
 
   const success = (position: { coords: { latitude: number; longitude: number } }) => {
-    console.log(typeof position.coords.latitude);
     const latVal = position.coords.latitude;
     const lngVal = position.coords.longitude;
     setLocation({ ...location, lat: latVal, lng: lngVal });
