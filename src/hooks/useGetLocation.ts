@@ -12,9 +12,10 @@ const useGetLocation = () => {
   };
 
   const success = (position: { coords: { latitude: number; longitude: number } }) => {
-    const latVal = position.coords.latitude;
-    const lngVal = position.coords.longitude;
-    setLocation({ ...location, lat: latVal, lng: lngVal });
+    setLocation({
+      lat: position.coords.latitude,
+      lng: position.coords.longitude,
+    });
   };
   const error = () => {
     console.log('error');
