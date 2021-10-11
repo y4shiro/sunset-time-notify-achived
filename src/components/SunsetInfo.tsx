@@ -1,43 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Input, Text, Select, Stack } from '@chakra-ui/react';
+
+import { calcSunsetTime, calcSunriseTime } from '../lib/calcSunTime';
+import usePrefNum from '../hooks/usePrefNum';
 
 import prefJson from '../data/location-of-pref-office-in-japan.json';
 
 const SunsetInfo: React.FC = () => {
-  const [formValue, setFormValue] = useState<string>('');
-  const [prefNum, setPrefNum] = useState<number>(0);
+  const { prefNum, changePrefNum } = usePrefNum();
 
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => setFormValue(e.target.value);
-
-  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setPrefNum(parseInt(e.target.value));
-  };
-
-  // ページ読み込み時に localStorage から値を取得して useState に保存
-  useEffect(() => {
-    const localStorageValue = JSON.parse(localStorage.getItem('form')!);
-    if (localStorageValue) setFormValue(localStorageValue);
-  }, []);
-
-  // formValue の値を更新した場合は localStorage にも反映させる
-  useEffect(() => {
-    localStorage.setItem('form', JSON.stringify(formValue));
-  }, [formValue]);
+  const sunriseTime: string = calcSunriseTime(prefJson[prefNum].lat, prefJson[prefNum].lng);
+  const sunsetTime: string = calcSunsetTime(prefJson[prefNum].lat, prefJson[prefNum].lng);
 
   return (
     <Stack m='4' spacing={4}>
-      <Input value={formValue} onChange={(e) => handleFormChange(e)} placeholder='値を入力' bg={'white'} />
-      <Text>フォームの値:{formValue}</Text>
-      <Select bg={'white'} onChange={(e) => handleSelectChange(e)}>
-        {prefJson.map((pref, index) => (
-          <option value={index} key={pref.pref}>
-            {pref.pref}
+      <Select bg={'white'} value={prefNum} onChange={(e) => changePrefNum(e)}>
+        {prefJson.map((data, index) => (
+          <option value={index} key={data.pref}>
+            {data.pref}
           </option>
         ))}
       </Select>
       <Text>県庁所在地:{prefJson[prefNum].addr}</Text>
       <Text>緯度:{prefJson[prefNum].lat}</Text>
       <Text>経度:{prefJson[prefNum].lng}</Text>
+      <Text>本日の日出時刻は{sunriseTime}です</Text>
+      <Text>本日の日没時刻は{sunsetTime}です</Text>
     </Stack>
   );
 };
