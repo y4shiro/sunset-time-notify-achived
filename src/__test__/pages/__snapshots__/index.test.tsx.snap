@@ -53,17 +53,6 @@ exports[`ホームページ 1`] = `
       <div
         class="chakra-stack css-3wimba"
       >
-        <input
-          class="chakra-input css-1vg4urz"
-          placeholder="値を入力"
-          value=""
-        />
-        <p
-          class="chakra-text css-0"
-        >
-          フォームの値:
-          
-        </p>
         <div
           class="chakra-select__wrapper css-42b2qy"
         >
@@ -341,6 +330,20 @@ exports[`ホームページ 1`] = `
         >
           経度:
           141.346874
+        </p>
+        <p
+          class="chakra-text css-0"
+        >
+          本日の日出時刻は
+          05:42:25
+          です
+        </p>
+        <p
+          class="chakra-text css-0"
+        >
+          本日の日没時刻は
+          16:59:56
+          です
         </p>
       </div>
     </div>
