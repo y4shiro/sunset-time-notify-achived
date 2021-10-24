@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, Button, Text, Select, Stack } from '@chakra-ui/react';
 
-import { calcSunsetTime, calcSunriseTime } from '../lib/calcSunTime';
-import usePrefNum from '../hooks/usePrefNum';
-import useGetLocation from '../hooks/useGetLocation';
+import { calcSunsetTime, calcSunriseTime } from '../../lib/calcSunTime';
+import usePrefNum from '../../hooks/usePrefNum';
+import useGetLocation from '../../hooks/useGetLocation';
 
-import prefJson from '../data/location-of-pref-office-in-japan.json';
+import prefJson from '../../data/location-of-pref-office-in-japan.json';
 
 const SunsetInfo: React.FC = () => {
   const { prefNum, changePrefNum } = usePrefNum();
