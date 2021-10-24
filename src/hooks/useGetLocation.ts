@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
 const useGetLocation = () => {
-  const [location, setLocation] = useState({ lat: 0, lng: 0 });
+  const [lat, setLat] = useState(0);
+  const [lng, setLng] = useState(0);
 
   const getLocation = () => {
     if (!navigator.geolocation) {
@@ -12,16 +13,14 @@ const useGetLocation = () => {
   };
 
   const success = (position: { coords: { latitude: number; longitude: number } }) => {
-    setLocation({
-      lat: position.coords.latitude,
-      lng: position.coords.longitude,
-    });
+    setLat(position.coords.latitude);
+    setLng(position.coords.longitude);
   };
   const error = (err: GeolocationPositionError) => {
     console.log(err.message);
   };
 
-  return { location, getLocation };
+  return { lat, lng, getLocation };
 };
 
 export default useGetLocation;
