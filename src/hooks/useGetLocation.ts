@@ -4,6 +4,7 @@ const useGetLocation = () => {
   const [lat, setLat] = useState(0);
   const [lng, setLng] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const getLocation = async () => {
     if (!navigator.geolocation) {
@@ -14,7 +15,10 @@ const useGetLocation = () => {
         const location = await getCurrentPosition();
         setLocations(location);
       } catch (e) {
-        console.error(e);
+        if (e instanceof Error) {
+          setError(e.message);
+          console.error(e);
+        }
       } finally {
         setLoading(false);
       }
@@ -37,7 +41,7 @@ const useGetLocation = () => {
     setLng(position.coords.longitude);
   };
 
-  return { lat, lng, loading, getLocation };
+  return { lat, lng, loading, error, getLocation };
 };
 
 export default useGetLocation;
