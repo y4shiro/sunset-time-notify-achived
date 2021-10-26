@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Box, Heading, HStack, SimpleGrid } from '@chakra-ui/react';
 
 import Map from './Map';
-import SunsetInfo from './SunsetInfo/Index';
+import SunsetInfo from './SunsetInfo/index';
 
 const MainContent: React.FC = () => {
   return (
