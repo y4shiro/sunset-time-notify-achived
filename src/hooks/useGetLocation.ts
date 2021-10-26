@@ -1,9 +1,5 @@
 import { useState } from 'react';
 
-type positionType = {
-  coords: { latitude: number; longitude: number };
-};
-
 const useGetLocation = () => {
   const [lat, setLat] = useState(0);
   const [lng, setLng] = useState(0);
@@ -25,13 +21,18 @@ const useGetLocation = () => {
     }
   };
 
-  const getCurrentPosition = (): Promise<positionType> => {
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(resolve, reject);
-    });
+  const getCurrentPosition = (): Promise<GeolocationPosition> => {
+    return new Promise(
+      (
+        resolve: (position: GeolocationPosition) => void,
+        reject: (positionError: GeolocationPositionError) => void
+      ) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+      }
+    );
   };
 
-  const setLocations = (position: positionType) => {
+  const setLocations = (position: GeolocationPosition) => {
     setLat(position.coords.latitude);
     setLng(position.coords.longitude);
   };
