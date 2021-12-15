@@ -15,9 +15,9 @@ const useGetLocation = () => {
         const location = await getCurrentPosition();
         setLocations(location);
       } catch (e) {
-        if (e instanceof Error) {
-          setError(e.message);
+        if (e instanceof GeolocationPositionError) {
           console.error(e);
+          setError(e.message);
         }
       } finally {
         setLoading(false);
