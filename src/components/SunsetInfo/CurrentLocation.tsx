@@ -4,7 +4,7 @@ import { Box, Button, Text } from '@chakra-ui/react';
 import useGetLocation from '../../hooks/useGetLocation';
 
 const CurrentLocation: React.FC = () => {
-  const { lat, lng, loading, getLocation } = useGetLocation();
+  const { lat, lng, loading, error, getLocation } = useGetLocation();
 
   return (
     <Box>
@@ -12,6 +12,7 @@ const CurrentLocation: React.FC = () => {
       <Button onClick={() => getLocation()}>現在地を取得する</Button>
       <Text>現在の経度:{loading ? '読込中...' : lat}</Text>
       <Text>現在の緯度:{loading ? '読込中...' : lng}</Text>
+      <Text>エラー:{error}</Text>
     </Box>
   );
 };
